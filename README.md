@@ -69,7 +69,7 @@ Download jar from the GitHub [releases page][RELEASES].
 ## License
 >[Apache-2.0][LICENSE]
 
-    Copyright 2018 Jonathan Merritt
+    Copyright 2018 Jonathan Merritt 11R00TT00R11@GMAIL.COM
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
