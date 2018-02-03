@@ -1,0 +1,110 @@
+buildscript {
+
+  repositories {
+    google()
+    jcenter()
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.2.0-alpha01'
+    classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0'
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    mavenCentral()
+  }
+}
+
+group = "com.github.jonathanmerritt.androidscabbard"
+Properties properties = new Properties()
+properties.load(file("local.properties").newDataInputStream())
+
+ext {
+  Dev = [
+      name  : "jonathanmerritt",
+      pass  : properties.getProperty("Dev.pass"),
+      key   : properties.getProperty("Dev.key"),
+      email : "11R00TT00RR11@GMAIL.COM",
+      url   : "https://github.com/JonathanMerritt"
+  ]
+
+  Rep = [
+      name    : name,
+      group   : group,
+      url     : "${Dev.url}/${name}",
+      git     : "${Dev.url}/${name}.git",
+      License : ["Apache-2.0"]
+  ]
+
+  Ver = [
+      compilesdk : 27,
+      buildtools : "27.0.3",
+      minsdk     : 17,
+
+      app        : "0.0.1",
+      lib        : "0.0.6",
+
+      /////////Deps/////////
+
+      dagger     : "2.14.1",
+      javax      : "1",
+
+      Android    : [
+          support    : "27.0.2",
+          constraint : "1.1.0-beta4",
+
+          Test       : [
+              runner   : "1.0.1",
+              espresso : "3.0.1"
+          ]
+      ],
+
+      Test       : [junit : "4.12"]
+  ]
+
+  Dep = [
+      javax   : "javax.inject:javax.inject:${Ver.javax}",
+
+      Android : [
+          appcompat  : "com.android.support:appcompat-v7:${Ver.Android.support}",
+          supportv4  : "com.android.support:support-v4:${Ver.Android.support}",
+          design     : "com.android.support:design:${Ver.Android.support}",
+
+          Constraint : [
+              "com.android.support.constraint:constraint-layout:${Ver.Android.constraint}",
+              "com.android.support.constraint:constraint-layout-solver:${Ver.Android.constraint}"
+          ],
+
+          Test       : [
+              runner   : "com.android.support.test:runner:${Ver.Android.Test.runner}",
+              espresso : "com.android.support.test.espresso:espresso-core:${Ver.Android.Test.espresso}"
+          ]
+      ],
+
+      Dagger  : [
+          android        : "com.google.dagger:dagger-android:${Ver.dagger}",
+          androidsupport : "com.google.dagger:dagger-android-support:${Ver.dagger}",
+
+          Annotation     : [
+              compiler  : "com.google.dagger:dagger-compiler:${Ver.dagger}",
+              processor : "com.google.dagger:dagger-android-processor:${Ver.dagger}"
+          ]
+      ],
+
+      Test    : [junit : "junit:junit:${Ver.Test.junit}"]
+  ]
+}
+
+static toVersionCode(def s) {
+  s.split("\\.").collect {it.toInteger()}.join().concat(new Date().format("yyMMdd")).toBigInteger()
+}
+
+task clean(type : Delete) {
+  delete rootProject.buildDir
+}

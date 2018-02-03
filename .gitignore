@@ -1,0 +1,10 @@
+.gradle
+.idea
+gradle
+build
+local.properties
+*.iml
+gradlew.bat
+gradlew
+publish
+publish.bat

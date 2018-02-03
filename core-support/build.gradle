@@ -1,0 +1,34 @@
+apply plugin : 'com.android.library'
+
+android {
+  compileSdkVersion Ver.compilesdk
+  buildToolsVersion Ver.buildtools
+
+  defaultConfig {
+    minSdkVersion Ver.minsdk
+    targetSdkVersion Ver.compilesdk
+    versionCode toVersionCode(Ver.lib)
+    versionName Ver.lib
+  }
+
+  buildTypes {
+    release {
+      postprocessing {
+        removeUnusedCode false
+        removeUnusedResources false
+        obfuscate false
+        optimizeCode false
+        proguardFile 'proguard-rules.pro'
+      }
+    }
+  }
+}
+
+dependencies {
+  api project(':annotations-support')
+
+  implementation Dep.Dagger.androidsupport
+  annotationProcessor Dep.Dagger.Annotation.compiler
+}
+
+apply from : rootProject.file("publish.gradle")

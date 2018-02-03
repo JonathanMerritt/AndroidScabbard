@@ -1,0 +1,1 @@
+include ':annotations', ':annotations-support', ':core', ':core-support', ':app', ':app-support'

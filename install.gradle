@@ -1,0 +1,37 @@
+apply plugin : 'com.github.dcendents.android-maven'
+
+install {
+  repositories.mavenInstaller {
+    pom {
+      project {
+        packaging 'aar'
+        groupId Rep.group
+        artifactId this.name
+        name this.name
+        description "${Rep.url}s' ${this.name} library"
+        url "${Rep.url}/tree/master/${this.name}"
+
+        licenses {
+          license {
+            name Rep.name
+            url "${Rep.url}/blob/master/LICENSE.txt"
+          }
+        }
+
+        developers {
+          developer {
+            id Dev.name
+            name Dev.name
+            email Dev.email
+          }
+        }
+
+        scm {
+          connection Rep.git
+          developerConnection Rep.git
+          url "${Rep.url}/tree/master/${this.name}"
+        }
+      }
+    }
+  }
+}

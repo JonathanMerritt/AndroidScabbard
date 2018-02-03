@@ -1,0 +1,46 @@
+apply plugin : 'com.android.application'
+
+android {
+  compileSdkVersion Ver.compilesdk
+  buildToolsVersion Ver.buildtools
+
+  defaultConfig {
+    minSdkVersion Ver.minsdk
+    targetSdkVersion Ver.compilesdk
+    versionCode toVersionCode(Ver.app)
+    versionName Ver.app
+
+    applicationId "${rootProject.group}"
+
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  implementation fileTree(dir : 'libs', include : ['*.jar'])
+  implementation project(':core')
+
+  implementation Dep.Dagger.android
+  annotationProcessor Dep.Dagger.Annotation.compiler
+  annotationProcessor Dep.Dagger.Annotation.processor
+
+  implementation Dep.Android.appcompat
+  implementation Dep.Android.design
+  implementation Dep.Android.Constraint
+
+  androidTestImplementation Dep.Android.Test.runner
+  androidTestImplementation Dep.Android.Test.espresso
+  testImplementation Dep.Test.junit
+}

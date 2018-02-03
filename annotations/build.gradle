@@ -1,0 +1,31 @@
+apply plugin : 'com.android.library'
+
+android {
+  compileSdkVersion Ver.compilesdk
+  buildToolsVersion Ver.buildtools
+
+  defaultConfig {
+    minSdkVersion Ver.minsdk
+    targetSdkVersion Ver.compilesdk
+    versionCode toVersionCode(Ver.lib)
+    versionName Ver.lib
+  }
+
+  buildTypes {
+    release {
+      postprocessing {
+        removeUnusedCode false
+        removeUnusedResources false
+        obfuscate false
+        optimizeCode false
+        proguardFile 'proguard-rules.pro'
+      }
+    }
+  }
+}
+
+dependencies {
+  implementation Dep.javax
+}
+
+apply from : rootProject.file("publish.gradle")
