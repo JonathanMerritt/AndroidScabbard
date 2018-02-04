@@ -21,6 +21,10 @@ import javax.inject.Qualifier;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * A simple {@link Qualifier}, 'intended' to qualify an {@code android.app.Fragment},
+ * that is the child of a {@link ChildFragmentQualified} {@code android.app.Fragment}.
+ */
 @Qualifier @Retention(RUNTIME) public @interface GrandChildFragmentQualified {
 
 }

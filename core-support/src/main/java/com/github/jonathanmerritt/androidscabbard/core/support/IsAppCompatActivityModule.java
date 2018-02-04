@@ -21,7 +21,19 @@ import com.github.jonathanmerritt.androidscabbard.annotations.support.scope.AppC
 import dagger.Binds;
 import dagger.Module;
 
+/**
+ * A {@link Module} that should be extended or implemented by an {@link AppCompatActivity} {@link Module}.
+ *
+ * Example:
+ * <code> @literal @}Module interface SomeAppCompatActivityModule extends IsAppCompatActivityModule<SomeAppCompatActivity> {} </code>
+ */
 @Module public interface IsAppCompatActivityModule<A extends AppCompatActivity> {
 
+  /**
+   * This will bind an {@link AppCompatActivityScoped} {@link AppCompatActivity} for the given activity.
+   *
+   * @param appCompatActivity the app compat activity
+   * @return the app compat activity
+   */
   @AppCompatActivityScoped @Binds AppCompatActivity bindAppCompatActivity(A appCompatActivity);
 }

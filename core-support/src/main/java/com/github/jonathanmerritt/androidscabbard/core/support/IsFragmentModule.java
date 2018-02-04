@@ -22,7 +22,19 @@ import com.github.jonathanmerritt.androidscabbard.annotations.support.scope.Frag
 import dagger.Binds;
 import dagger.Module;
 
+/**
+ * A {@link Module} that should be extended or implemented by an {@link Fragment} {@link Module}.
+ *
+ * Example:
+ * <code> @literal @}Module interface SomeFragmentModule extends IsFragmentModule<SomeFragment> {} </code>
+ */
 @Module public interface IsFragmentModule<F extends Fragment> {
 
+  /**
+   * This will bind an {@link FragmentScoped} {@link FragmentQualified} {@link Fragment} for the given fragment.
+   *
+   * @param fragment the fragment
+   * @return the fragment
+   */
   @FragmentScoped @FragmentQualified @Binds Fragment bindFragment(F fragment);
 }

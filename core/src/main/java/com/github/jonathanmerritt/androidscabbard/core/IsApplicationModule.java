@@ -21,7 +21,19 @@ import dagger.Binds;
 import dagger.Module;
 import javax.inject.Singleton;
 
+/**
+ * A {@link Module} that should be extended or implemented by an {@link Application} {@link Module}.
+ *
+ * Example:
+ * <code> @literal @}Module interface SomeApplicationModule extends IsApplicationModule<SomeApplication> {} </code>
+ */
 @Module public interface IsApplicationModule<A extends Application> {
 
+  /**
+   * This will bind an {@link Singleton} {@link Application} for the given application.
+   *
+   * @param application the application
+   * @return the application
+   */
   @Singleton @Binds Application bindApplication(A application);
 }

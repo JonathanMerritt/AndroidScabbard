@@ -22,7 +22,22 @@ import com.github.jonathanmerritt.androidscabbard.annotations.support.scope.Chil
 import dagger.Binds;
 import dagger.Module;
 
+/**
+ * A {@link Module} that should be extended or implemented by an {@link Fragment} {@link Module},
+ * that is for the child of a {@link com.github.jonathanmerritt.androidscabbard.annotations.support.scope.FragmentScoped}
+ * {@link com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier.FragmentQualified}
+ * {@link Fragment}.
+ *
+ * Example:
+ * <code> @literal @}Module interface SomeChildFragmentModule extends IsChildFragmentModule<SomeChildFragment> {} </code>
+ */
 @Module public interface IsChildFragmentModule<F extends Fragment> {
 
+  /**
+   * This will bind an {@link ChildFragmentScoped} {@link ChildFragmentQualified} {@link Fragment} for the given fragment.
+   *
+   * @param fragment the fragment
+   * @return the fragment
+   */
   @ChildFragmentScoped @ChildFragmentQualified @Binds Fragment bindChildFragment(F fragment);
 }

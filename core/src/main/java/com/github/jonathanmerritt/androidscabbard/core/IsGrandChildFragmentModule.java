@@ -22,7 +22,22 @@ import com.github.jonathanmerritt.androidscabbard.annotations.scope.GrandChildFr
 import dagger.Binds;
 import dagger.Module;
 
+/**
+ * A {@link Module} that should be extended or implemented by an {@link Fragment} {@link Module},
+ * that is for the child of a {@link com.github.jonathanmerritt.androidscabbard.annotations.scope.ChildFragmentScoped}
+ * {@link com.github.jonathanmerritt.androidscabbard.annotations.qualifier.ChildFragmentQualified}
+ * {@link Fragment}.
+ *
+ * Example:
+ * <code> @literal @}Module interface SomeGrandChildFragmentModule extends IsGrandChildFragmentModule<SomeGrandChildFragment> {} </code>
+ */
 @Module public interface IsGrandChildFragmentModule<F extends Fragment> {
 
+  /**
+   * This will bind an {@link GrandChildFragmentScoped} {@link GrandChildFragmentQualified} {@link Fragment} for the given fragment.
+   *
+   * @param fragment the fragment
+   * @return the fragment
+   */
   @GrandChildFragmentScoped @GrandChildFragmentQualified @Binds Fragment bindGrandChildFragment(F fragment);
 }

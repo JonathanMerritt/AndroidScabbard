@@ -21,6 +21,9 @@ import javax.inject.Qualifier;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * A simple {@link Qualifier}, 'intended' to qualify an {@code android.support.v7.app.AppCompatActivity}.
+ */
 @Qualifier @Retention(RUNTIME) public @interface AppCompatActivityQualified {
 
 }

@@ -25,6 +25,9 @@ import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * A simple {@link Scope}, 'intended' to scope an {@code android.support.v4.app.Fragment}.
+ */
 @Scope @Retention(RUNTIME) @Target({ METHOD, TYPE, PARAMETER }) public @interface FragmentScoped {
 
 }
