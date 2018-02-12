@@ -1,3 +1,11 @@
+### Patch: v0.0.7
+_February 12, 2018_
+
+- Refresh of a few things.
+- [Commits](https://github.com/JonathanMerritt/AndroidScabbard/compare/v0.0.6...v0.0.7)
+---
+
+
 ### Patch: v0.0.6
 _February 3, 2018_
 
