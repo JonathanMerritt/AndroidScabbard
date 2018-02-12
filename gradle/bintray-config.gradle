@@ -47,7 +47,7 @@ bintray {
       }
 
       mavenCentralSync {
-        sync = false
+        sync = true
         user = developer.name
         password = developer.pass
       }
