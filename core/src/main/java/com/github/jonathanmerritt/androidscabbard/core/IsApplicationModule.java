@@ -24,24 +24,24 @@ import javax.inject.Singleton;
 /**
  * Base dagger module interface for android applications.
  *
- * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.app.Application} {@code dagger.Module}.</p>
+ * <p>A {@code Module} that should be extended or implemented by an {@code Application} {@code Module}.</p>
  *
  * Example:
  * <code> @Module interface SomeApplicationModule extends IsApplicationModule{@literal <SomeApplication>} {} </code>
  *
- * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Application.java">Application</a>
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Application.java">android.app.Application</a>
  */
 @Module public interface IsApplicationModule<A extends Application> {
 
   /**
-   * This will {@code dagger.Binds} an {@code javax.inject.Singleton} {@code android.app.Application} for the given application.
+   * This will {@code Binds} an {@code Singleton} {@code Application} for the given application.
    *
-   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
-   * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Singleton.java">Singleton</a>
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
+   * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Singleton.java">javax.inject.Singleton</a>
    *
-   * @param application that extends android.app.Application
-   * @return a base android.app.Application instance
+   * @param application that extends Application
+   * @return a base Application instance
    */
   @Singleton @Binds Application bindApplication(A application);
 }

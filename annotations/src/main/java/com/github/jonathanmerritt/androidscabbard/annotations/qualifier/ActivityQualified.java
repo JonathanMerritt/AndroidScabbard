@@ -25,10 +25,10 @@ import javax.inject.Qualifier;
 /**
  * Base javax qualifier for android activities.
  *
- * <p>A simple {@code javax.inject.Qualifier}, 'intended' to qualify an {@code android.app.Activity}.</p>
+ * <p>A simple {@code Qualifier}, 'intended' to qualify an {@code Activity}.</p>
  *
- * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Qualifier.java">Qualifier</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">Activity</a>
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Qualifier.java">javax.inject.Qualifier</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">android.app.Activity</a>
  */
 @Qualifier @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER }) public @interface ActivityQualified {

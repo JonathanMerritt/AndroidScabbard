@@ -24,24 +24,24 @@ import dagger.Module;
 /**
  * Base dagger module interface for android activities.
  *
- * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.app.Activity} {@code dagger.Module}.</p>
+ * <p>A {@code Module} that should be extended or implemented by an {@code Activity} {@code Module}.</p>
  *
  * Example:
  * <code> @Module interface SomeActivityModule extends IsActivityModule{@literal <SomeActivity>} {} </code>
  *
- * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">Activity</a>
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">android.app.Activity</a>
  */
 @Module public interface IsActivityModule<A extends Activity> {
 
   /**
-   * This will {@code dagger.Binds} an {@code com.github.jonathanmerritt.androidscabbard.annotations.scope.ActivityScoped} {@code android.app.Activity} for the given activity.
+   * This will {@code Binds} an {@code ActivityScoped} {@code Activity} for the given activity.
    *
-   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
-   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ActivityScoped.java">ActivityScoped</a>
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ActivityScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.scope.ActivityScoped</a>
    *
-   * @param activity that extends android.app.Activity
-   * @return a base android.app.Activity instance
+   * @param activity that extends Activity
+   * @return a base Activity instance
    */
   @ActivityScoped @Binds Activity bindActivity(A activity);
 }

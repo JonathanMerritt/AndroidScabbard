@@ -25,10 +25,10 @@ import javax.inject.Scope;
 /**
  * Base dagger scope for android support fragments.
  *
- * <p>A simple {@code javax.inject.Scope}, 'intended' to scope an {@code android.support.v4.app.Fragment}.</p>
+ * <p>A simple {@code Scope}, 'intended' to scope an {@code Fragment}.</p>
  *
- * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">Scope</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">Fragment</a>
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">javax.inject.Scope</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">android.support.v4.app.Fragment</a>
  */
 @Scope @Retention(RetentionPolicy.RUNTIME) @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER })
 public @interface FragmentScoped {

@@ -25,11 +25,11 @@ import javax.inject.Qualifier;
 /**
  * Base dagger qualifier for android fragment children.
  *
- * <p>A simple {@code javax.inject.Qualifier}, 'intended' to qualify an {@code android.app.Fragment},
- * that is the child of a {@link FragmentQualified} {@code android.app.Fragment}.</p>
+ * <p>A simple {@code Qualifier}, 'intended' to qualify an {@code Fragment},
+ * that is the child of a {@link FragmentQualified} {@code Fragment}.</p>
  *
- * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Qualifier.java">Qualifier</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">Fragment</a>
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Qualifier.java">javax.inject.Qualifier</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">android.app.Fragment</a>
  */
 @Qualifier @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER }) public @interface ChildFragmentQualified {

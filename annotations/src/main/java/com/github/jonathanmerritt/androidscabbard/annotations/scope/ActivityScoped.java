@@ -25,10 +25,10 @@ import javax.inject.Scope;
 /**
  * Base dagger scope for android activities.
  *
- * <p>A simple {@code javax.inject.Scope}, 'intended' to scope an {@code android.app.Activity}.</p>
+ * <p>A simple {@code Scope}, 'intended' to scope an {@code Activity}.</p>
  *
- * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">Scope</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">Activity</a>
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">javax.inject.Scope</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">android.app.Activity</a>
  */
 @Scope @Retention(RetentionPolicy.RUNTIME) @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER })
 public @interface ActivityScoped {

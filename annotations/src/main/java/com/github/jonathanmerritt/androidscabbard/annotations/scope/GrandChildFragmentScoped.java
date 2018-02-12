@@ -25,11 +25,11 @@ import javax.inject.Scope;
 /**
  * Base dagger scope for android child fragment children.
  *
- * <p>A simple {@code javax.inject.Scope}, 'intended' to scope an {@code android.app.Fragment},
- * that is the child of a {@link ChildFragmentScoped} {@code android.app.Fragment}.</p>
+ * <p>A simple {@code Scope}, 'intended' to scope an {@code Fragment},
+ * that is the child of a {@link ChildFragmentScoped} {@code Fragment}.</p>
  *
- * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">Scope</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">Fragment</a>
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">javax.inject.Scope</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">android.app.Fragment</a>
  */
 @Scope @Retention(RetentionPolicy.RUNTIME) @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER })
 public @interface GrandChildFragmentScoped {

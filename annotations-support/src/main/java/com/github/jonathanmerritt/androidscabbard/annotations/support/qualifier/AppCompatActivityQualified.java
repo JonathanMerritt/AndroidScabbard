@@ -25,10 +25,10 @@ import javax.inject.Qualifier;
 /**
  * Base dagger qualifier for android support appcompat activities.
  *
- * <p>A simple {@code javax.inject.Qualifier}, 'intended' to qualify an {@code android.support.v7.app.AppCompatActivity}.</p>
+ * <p>A simple {@code Qualifier}, 'intended' to qualify an {@code AppCompatActivity}.</p>
  *
- * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Qualifier.java">Qualifier</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">AppCompatActivity</a>
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Qualifier.java">javax.inject.Qualifier</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">android.support.v7.app.AppCompatActivity</a>
  */
 @Qualifier @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER })

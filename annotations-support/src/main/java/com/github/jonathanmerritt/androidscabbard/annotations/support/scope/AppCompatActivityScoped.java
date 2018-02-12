@@ -25,10 +25,10 @@ import javax.inject.Scope;
 /**
  * Base dagger scope for android support appcompat activities.
  *
- * <p>A simple {@code javax.inject.Scope}, 'intended' to scope an {@code android.support.v7.app.AppCompatActivity}.</p>
+ * <p>A simple {@code Scope}, 'intended' to scope an {@code AppCompatActivity}.</p>
  *
- * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">Scope</a>
- * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">AppCompatActivity</a>
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">javax.inject.Scope</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">android.support.v7.app.AppCompatActivity</a>
  */
 @Scope @Retention(RetentionPolicy.RUNTIME) @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER })
 public @interface AppCompatActivityScoped {
