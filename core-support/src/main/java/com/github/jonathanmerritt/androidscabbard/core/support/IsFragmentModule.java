@@ -23,18 +23,27 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * A {@link Module} that should be extended or implemented by an {@link Fragment} {@link Module}.
+ * Base dagger module interface for android support fragments.
+ *
+ * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.support.v4.app.Fragment} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @literal @}Module interface SomeFragmentModule extends IsFragmentModule<SomeFragment> {} </code>
+ * <code> @Module interface SomeFragmentModule extends IsFragmentModule<SomeFragment> {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">Fragment</a>
  */
 @Module public interface IsFragmentModule<F extends Fragment> {
 
   /**
-   * This will bind an {@link FragmentScoped} {@link FragmentQualified} {@link Fragment} for the given fragment.
+   * This will {@code dagger.Binds} an
+   * {@code com.github.jonathanmerritt.androidscabbard.annotations.support.scope.FragmentScoped} and
+   * {@code com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier.FragmentQualified}
+   * {@code android.support.v4.app.Fragment} for the given support fragment.
    *
-   * @param fragment the fragment
-   * @return the fragment
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/FragmentScoped.java">FragmentScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/FragmentQualified.java">FragmentQualified</a>
    */
   @FragmentScoped @FragmentQualified @Binds Fragment bindFragment(F fragment);
 }

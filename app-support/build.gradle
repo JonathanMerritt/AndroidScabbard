@@ -17,16 +17,16 @@
 apply plugin : 'com.android.application'
 
 android {
-  compileSdkVersion Ver.compilesdk
-  buildToolsVersion Ver.buildtools
+  compileSdkVersion androids.compileSdk
+  buildToolsVersion androids.buildTools
 
   defaultConfig {
-    minSdkVersion Ver.minsdk
-    targetSdkVersion Ver.compilesdk
-    versionCode toVersionCode(Ver.app)
-    versionName Ver.app
+    minSdkVersion androids.minSdk
+    targetSdkVersion androids.compileSdk
+    versionCode androids.versionCode
+    versionName version
 
-    applicationId "${rootProject.group}.support"
+    applicationId "${group}.support"
 
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
@@ -48,16 +48,16 @@ dependencies {
   implementation fileTree(dir : 'libs', include : ['*.jar'])
   implementation project(':core-support')
 
-  implementation Dep.Dagger.androidsupport
-  annotationProcessor Dep.Dagger.Annotation.compiler
-  annotationProcessor Dep.Dagger.Annotation.processor
+  implementation dependencys.daggers.androidSupport
+  annotationProcessor dependencys.daggers.annotations.compiler
+  annotationProcessor dependencys.daggers.annotations.androidProcessor
 
-  implementation Dep.Android.appcompat
-  implementation Dep.Android.supportv4
-  implementation Dep.Android.design
-  implementation Dep.Android.Constraint
+  implementation dependencys.supports.appcompatV7
+  implementation dependencys.supports.supportV4
+  implementation dependencys.supports.design
+  implementation dependencys.supports.constraints
 
-  androidTestImplementation Dep.Android.Test.runner
-  androidTestImplementation Dep.Android.Test.espresso
-  testImplementation Dep.Test.junit
+  androidTestImplementation dependencys.supports.tests.runner
+  androidTestImplementation dependencys.supports.tests.espresso
+  testImplementation dependencys.tests.junit
 }

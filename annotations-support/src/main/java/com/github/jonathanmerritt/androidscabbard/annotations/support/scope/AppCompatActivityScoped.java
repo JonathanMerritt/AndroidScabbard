@@ -16,18 +16,21 @@
 
 package com.github.jonathanmerritt.androidscabbard.annotations.support.scope;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import javax.inject.Scope;
 
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.ElementType.PARAMETER;
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
 /**
- * A simple {@link Scope}, 'intended' to scope an {@code android.support.v7.app.AppCompatActivity}.
+ * Base dagger scope for android support appcompat activities.
+ *
+ * <p>A simple {@code javax.inject.Scope}, 'intended' to scope an {@code android.support.v7.app.AppCompatActivity}.</p>
+ *
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">Scope</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">AppCompatActivity</a>
  */
-@Scope @Retention(RUNTIME) @Target({ METHOD, TYPE, PARAMETER }) public @interface AppCompatActivityScoped {
+@Scope @Retention(RetentionPolicy.RUNTIME) @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER })
+public @interface AppCompatActivityScoped {
 
 }

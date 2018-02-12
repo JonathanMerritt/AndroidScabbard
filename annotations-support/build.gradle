@@ -17,14 +17,14 @@
 apply plugin : 'com.android.library'
 
 android {
-  compileSdkVersion Ver.compilesdk
-  buildToolsVersion Ver.buildtools
+  compileSdkVersion androids.compileSdk
+  buildToolsVersion androids.buildTools
 
   defaultConfig {
-    minSdkVersion Ver.minsdk
-    targetSdkVersion Ver.compilesdk
-    versionCode toVersionCode(Ver.lib)
-    versionName Ver.lib
+    minSdkVersion androids.minSdk
+    targetSdkVersion androids.compileSdk
+    versionCode androids.versionCode
+    versionName version
   }
 
   buildTypes {
@@ -41,7 +41,9 @@ android {
 }
 
 dependencies {
-  implementation Dep.javax
+  implementation dependencys.javax
 }
 
-apply from : rootProject.file("publish.gradle")
+apply from : rootProject.file("gradle/android-tasks.gradle")
+apply from : rootProject.file("gradle/bintray-config.gradle")
+apply from : rootProject.file("gradle/maven-install.gradle")

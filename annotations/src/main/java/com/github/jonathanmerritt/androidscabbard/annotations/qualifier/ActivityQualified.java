@@ -16,14 +16,21 @@
 
 package com.github.jonathanmerritt.androidscabbard.annotations.qualifier;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import javax.inject.Qualifier;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
 /**
- * A simple {@link Qualifier}, 'intended' to qualify an {@code android.app.Activity}.
+ * Base javax qualifier for android activities.
+ *
+ * <p>A simple {@code javax.inject.Qualifier}, 'intended' to qualify an {@code android.app.Activity}.</p>
+ *
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Qualifier.java">Qualifier</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">Activity</a>
  */
-@Qualifier @Retention(RUNTIME) public @interface ActivityQualified {
+@Qualifier @Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER }) public @interface ActivityQualified {
 
 }

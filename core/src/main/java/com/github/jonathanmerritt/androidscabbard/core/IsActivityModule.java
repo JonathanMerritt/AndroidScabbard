@@ -22,18 +22,23 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * A {@link Module} that should be extended or implemented by an {@link Activity} {@link Module}.
+ * Base dagger module interface for android activities.
+ *
+ * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.app.Activity} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @literal @}Module interface SomeActivityModule extends IsActivityModule<SomeActivity> {} </code>
+ * <code> @Module interface SomeActivityModule extends IsActivityModule<SomeActivity> {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">Activity</a>
  */
 @Module public interface IsActivityModule<A extends Activity> {
 
   /**
-   * This will bind an {@link ActivityScoped} {@link Activity} for the given activity.
+   * This will {@code dagger.Binds} an {@code com.github.jonathanmerritt.androidscabbard.annotations.scope.ActivityScoped} {@code android.app.Activity} for the given activity.
    *
-   * @param activity the activity
-   * @return the activity
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ActivityScoped.java">ActivityScoped</a>
    */
   @ActivityScoped @Binds Activity bindActivity(A activity);
 }

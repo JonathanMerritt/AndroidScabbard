@@ -22,18 +22,25 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * A {@link Module} that should be extended or implemented by an {@link AppCompatActivity} {@link Module}.
+ * Base dagger module interface for android support appcompat activities.
+ *
+ * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.support.v7.app.AppCompatActivity} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @literal @}Module interface SomeAppCompatActivityModule extends IsAppCompatActivityModule<SomeAppCompatActivity> {} </code>
+ * <code> @Module interface SomeAppCompatActivityModule extends IsAppCompatActivityModule<SomeAppCompatActivity> {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">AppCompatActivity</a>
  */
 @Module public interface IsAppCompatActivityModule<A extends AppCompatActivity> {
 
   /**
-   * This will bind an {@link AppCompatActivityScoped} {@link AppCompatActivity} for the given activity.
+   * This will {@code dagger.Binds} an
+   * {@code com.github.jonathanmerritt.androidscabbard.annotations.support.scope.AppCompatActivityScoped}
+   * {@code android.support.v7.app.AppCompatActivity} for the given appcompat activity.
    *
-   * @param appCompatActivity the app compat activity
-   * @return the app compat activity
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/AppCompatActivityScoped.java">AppCompatActivityScoped</a>
    */
   @AppCompatActivityScoped @Binds AppCompatActivity bindAppCompatActivity(A appCompatActivity);
 }

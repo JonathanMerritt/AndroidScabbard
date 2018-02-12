@@ -23,18 +23,27 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * A {@link Module} that should be extended or implemented by an {@link Fragment} {@link Module}.
+ * Base dagger module interface for android fragments.
+ *
+ * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.app.Fragment} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @literal @}Module interface SomeFragmentModule extends IsFragmentModule<SomeFragment> {} </code>
+ * <code> @Module interface SomeFragmentModule extends IsFragmentModule<SomeFragment> {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">Fragment</a>
  */
 @Module public interface IsFragmentModule<F extends Fragment> {
 
   /**
-   * This will bind an {@link FragmentScoped} {@link FragmentQualified} {@link Fragment} for the given fragment.
+   * This will {@code dagger.Binds} an
+   * {@code com.github.jonathanmerritt.androidscabbard.annotations.scope.FragmentScoped} and
+   * {@code com.github.jonathanmerritt.androidscabbard.annotations.qualifier.FragmentQualified}
+   * {@code android.app.Fragment} for the given fragment.
    *
-   * @param fragment the fragment
-   * @return the fragment
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/FragmentScoped.java">FragmentScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/qualifier/FragmentQualified.java">FragmentQualified</a>
    */
   @FragmentScoped @FragmentQualified @Binds Fragment bindFragment(F fragment);
 }

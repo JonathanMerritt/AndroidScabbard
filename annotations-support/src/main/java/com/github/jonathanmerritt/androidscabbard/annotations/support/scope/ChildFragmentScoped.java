@@ -16,19 +16,22 @@
 
 package com.github.jonathanmerritt.androidscabbard.annotations.support.scope;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import javax.inject.Scope;
 
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.ElementType.PARAMETER;
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
 /**
- * A simple {@link Scope}, 'intended' to scope an {@code android.support.v4.app.Fragment}.
- * that is the child of a {@link FragmentScoped} {@code android.support.v4.app.Fragment}.
+ * Base dagger scope for android support fragment children.
+ *
+ * <p>A simple {@code javax.inject.Scope}, 'intended' to scope an {@code android.support.v4.app.Fragment},
+ * that is the child of a {@link FragmentScoped} {@code android.support.v4.app.Fragment}.</p>
+ *
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Scope.java">Scope</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">Fragment</a>
  */
-@Scope @Retention(RUNTIME) @Target({ METHOD, TYPE, PARAMETER }) public @interface ChildFragmentScoped {
+@Scope @Retention(RetentionPolicy.RUNTIME) @Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER })
+public @interface ChildFragmentScoped {
 
 }

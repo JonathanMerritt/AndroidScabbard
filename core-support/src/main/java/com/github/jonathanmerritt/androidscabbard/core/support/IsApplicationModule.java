@@ -22,18 +22,12 @@ import dagger.Module;
 import javax.inject.Singleton;
 
 /**
- * A {@link Module} that should be extended or implemented by an {@link Application} {@link Module}.
- *
- * Example:
- * <code> @literal @}Module interface SomeApplicationModule extends IsApplicationModule<SomeApplication> {} </code>
+ * @see <a href="hhttps://github.com/JonathanMerritt/AndroidScabbard/blob/master/core/src/main/java/com/github/jonathanmerritt/androidscabbard/core/IsApplicationModule.java">IsApplicationModule</a>
  */
 @Module public interface IsApplicationModule<A extends Application> {
 
   /**
-   * This will bind an {@link Singleton} {@link Application} for the given application.
-   *
-   * @param application the application
-   * @return the application
+   * @see <a href="hhttps://github.com/JonathanMerritt/AndroidScabbard/blob/master/core/src/main/java/com/github/jonathanmerritt/androidscabbard/core/IsApplicationModule.java">IsApplicationModule#bindApplication</a>
    */
   @Singleton @Binds Application bindApplication(A application);
 }

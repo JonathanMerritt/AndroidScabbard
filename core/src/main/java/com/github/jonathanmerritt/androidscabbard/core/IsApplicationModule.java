@@ -22,18 +22,23 @@ import dagger.Module;
 import javax.inject.Singleton;
 
 /**
- * A {@link Module} that should be extended or implemented by an {@link Application} {@link Module}.
+ * Base dagger module interface for android applications.
+ *
+ * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.app.Application} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @literal @}Module interface SomeApplicationModule extends IsApplicationModule<SomeApplication> {} </code>
+ * <code> @Module interface SomeApplicationModule extends IsApplicationModule<SomeApplication> {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Application.java">Application</a>
  */
 @Module public interface IsApplicationModule<A extends Application> {
 
   /**
-   * This will bind an {@link Singleton} {@link Application} for the given application.
+   * This will {@code dagger.Binds} an {@code javax.inject.Singleton} {@code android.app.Application} for the given application.
    *
-   * @param application the application
-   * @return the application
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
+   * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Singleton.java">Singleton</a>
    */
   @Singleton @Binds Application bindApplication(A application);
 }

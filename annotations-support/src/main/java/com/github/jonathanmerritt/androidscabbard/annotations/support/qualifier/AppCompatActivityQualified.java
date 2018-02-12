@@ -16,14 +16,22 @@
 
 package com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import javax.inject.Qualifier;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
 /**
- * A simple {@link Qualifier}, 'intended' to qualify an {@code android.support.v7.app.AppCompatActivity}.
+ * Base dagger qualifier for android support appcompat activities.
+ *
+ * <p>A simple {@code javax.inject.Qualifier}, 'intended' to qualify an {@code android.support.v7.app.AppCompatActivity}.</p>
+ *
+ * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Qualifier.java">Qualifier</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">AppCompatActivity</a>
  */
-@Qualifier @Retention(RUNTIME) public @interface AppCompatActivityQualified {
+@Qualifier @Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER })
+public @interface AppCompatActivityQualified {
 
 }

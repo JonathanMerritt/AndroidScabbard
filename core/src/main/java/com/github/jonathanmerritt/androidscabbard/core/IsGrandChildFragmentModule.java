@@ -23,21 +23,27 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * A {@link Module} that should be extended or implemented by an {@link Fragment} {@link Module},
- * that is for the child of a {@link com.github.jonathanmerritt.androidscabbard.annotations.scope.ChildFragmentScoped}
- * {@link com.github.jonathanmerritt.androidscabbard.annotations.qualifier.ChildFragmentQualified}
- * {@link Fragment}.
+ * Base dagger module interface for android fragments that are the child of an android fragment that is a child of an android fragment.
+ *
+ * <p>A {@code dagger.Module} that should be extended or implemented by a grand child {@code android.app.Fragment} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @literal @}Module interface SomeGrandChildFragmentModule extends IsGrandChildFragmentModule<SomeGrandChildFragment> {} </code>
+ * <code> @Module interface SomeGrandChildFragmentModule extends IsGrandChildFragmentModule<SomeGrandChildFragment> {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">Fragment</a>
  */
 @Module public interface IsGrandChildFragmentModule<F extends Fragment> {
 
   /**
-   * This will bind an {@link GrandChildFragmentScoped} {@link GrandChildFragmentQualified} {@link Fragment} for the given fragment.
+   * This will {@code dagger.Binds} an
+   * {@code com.github.jonathanmerritt.androidscabbard.annotations.scope.GrandChildFragmentScoped} and
+   * {@code com.github.jonathanmerritt.androidscabbard.annotations.qualifier.GrandChildFragmentQualified}
+   * {@code android.app.Fragment} for the given fragment.
    *
-   * @param fragment the fragment
-   * @return the fragment
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/GrandChildFragmentScoped.java">GrandChildFragmentScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/qualifier/GrandChildFragmentQualified.java">GrandChildFragmentQualified</a>
    */
   @GrandChildFragmentScoped @GrandChildFragmentQualified @Binds Fragment bindGrandChildFragment(F fragment);
 }
