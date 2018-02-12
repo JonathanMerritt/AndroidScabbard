@@ -28,7 +28,7 @@ import dagger.Module;
  * <p>A {@code dagger.Module} that should be extended or implemented by a grand child {@code android.app.Fragment} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @Module interface SomeGrandChildFragmentModule extends IsGrandChildFragmentModule<SomeGrandChildFragment> {} </code>
+ * <code> @Module interface SomeGrandChildFragmentModule extends IsGrandChildFragmentModule{@literal <SomeGrandChildFragment>} {} </code>
  *
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">Fragment</a>
@@ -44,6 +44,9 @@ import dagger.Module;
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/GrandChildFragmentScoped.java">GrandChildFragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/qualifier/GrandChildFragmentQualified.java">GrandChildFragmentQualified</a>
+   *
+   * @param fragment that extends android.app.Fragment
+   * @return a base android.app.Fragment instance
    */
   @GrandChildFragmentScoped @GrandChildFragmentQualified @Binds Fragment bindGrandChildFragment(F fragment);
 }

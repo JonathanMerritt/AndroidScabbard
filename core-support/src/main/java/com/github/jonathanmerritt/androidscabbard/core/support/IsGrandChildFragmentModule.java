@@ -16,6 +16,7 @@
 
 package com.github.jonathanmerritt.androidscabbard.core.support;
 
+import android.support.v4.app.Fragment;
 import com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier.GrandChildFragmentQualified;
 import com.github.jonathanmerritt.androidscabbard.annotations.support.scope.GrandChildFragmentScoped;
 import dagger.Binds;
@@ -33,7 +34,7 @@ import dagger.Module;
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">Fragment</a>
  */
-@Module public interface IsGrandChildFragmentModule<F extends android.app.Fragment> {
+@Module public interface IsGrandChildFragmentModule<F extends Fragment> {
 
   /**
    * This will {@code dagger.Binds} an
@@ -44,7 +45,10 @@ import dagger.Module;
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/GrandChildFragmentScoped.java">GrandChildFragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/GrandChildFragmentQualified.java">GrandChildFragmentQualified</a>
+   *
+   * @param fragment that extends android.support.v4.app.Fragment
+   * @return a base android.support.v4.app.Fragment instance
    */
-  @GrandChildFragmentScoped @GrandChildFragmentQualified @Binds android.app.Fragment bindGrandChildFragment(
+  @GrandChildFragmentScoped @GrandChildFragmentQualified @Binds Fragment bindGrandChildFragment(
       F fragment);
 }

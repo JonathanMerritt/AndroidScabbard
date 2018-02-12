@@ -27,7 +27,7 @@ import dagger.Module;
  * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.app.Activity} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @Module interface SomeActivityModule extends IsActivityModule<SomeActivity> {} </code>
+ * <code> @Module interface SomeActivityModule extends IsActivityModule{@literal <SomeActivity>} {} </code>
  *
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">Activity</a>
@@ -39,6 +39,9 @@ import dagger.Module;
    *
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ActivityScoped.java">ActivityScoped</a>
+   *
+   * @param activity that extends android.app.Activity
+   * @return a base android.app.Activity instance
    */
   @ActivityScoped @Binds Activity bindActivity(A activity);
 }

@@ -27,7 +27,7 @@ import javax.inject.Singleton;
  * <p>A {@code dagger.Module} that should be extended or implemented by an {@code android.app.Application} {@code dagger.Module}.</p>
  *
  * Example:
- * <code> @Module interface SomeApplicationModule extends IsApplicationModule<SomeApplication> {} </code>
+ * <code> @Module interface SomeApplicationModule extends IsApplicationModule{@literal <SomeApplication>} {} </code>
  *
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Application.java">Application</a>
@@ -39,6 +39,9 @@ import javax.inject.Singleton;
    *
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
    * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Singleton.java">Singleton</a>
+   *
+   * @param application that extends android.app.Application
+   * @return a base android.app.Application instance
    */
   @Singleton @Binds Application bindApplication(A application);
 }

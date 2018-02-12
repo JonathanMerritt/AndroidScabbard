@@ -44,6 +44,9 @@ import dagger.Module;
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/FragmentScoped.java">FragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/FragmentQualified.java">FragmentQualified</a>
+   *
+   * @param fragment that extends android.support.v4.app.Fragment
+   * @return a base android.support.v4.app.Fragment instance
    */
   @FragmentScoped @FragmentQualified @Binds Fragment bindFragment(F fragment);
 }
