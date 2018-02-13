@@ -34,7 +34,7 @@ import dagger.Provides;
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">android.app.Fragment</a>
  */
-@Module public abstract class HasGrandChildFragmentModule {
+@Module public final class HasGrandChildFragmentModule {
 
   /**
    * This will {@code Provides} an {@code GrandChildFragmentScoped} and {@code GrandChildFragmentQualified} {@code Class} for the given fragment.

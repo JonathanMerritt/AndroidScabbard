@@ -27,7 +27,7 @@ import javax.inject.Singleton;
  * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/core/src/main/java/com/github/jonathanmerritt/androidscabbard/core/HasApplicationModule.java">com.github.jonathanmerritt.androidscabbard.core.HasApplicationModule</a>
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/android/support/AndroidSupportInjectionModule.java">dagger.android.support.AndroidSupportInjectionModule</a>
  */
-@Module(includes = AndroidSupportInjectionModule.class) public abstract class HasApplicationModule {
+@Module(includes = AndroidSupportInjectionModule.class) public final class HasApplicationModule {
 
   /**
    * @param application that extends Application

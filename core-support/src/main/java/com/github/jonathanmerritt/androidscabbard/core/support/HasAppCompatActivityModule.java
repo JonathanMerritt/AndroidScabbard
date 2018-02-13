@@ -34,7 +34,7 @@ import dagger.Provides;
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">android.support.v7.app.AppCompatActivity</a>
  */
-@Module public abstract class HasAppCompatActivityModule {
+@Module public final class HasAppCompatActivityModule {
 
   /**
    * This will {@code Provides} an {@code AppCompatActivityScoped} and {@code AppCompatActivityQualified} {@code Class} for the given appcompat activity.

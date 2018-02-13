@@ -34,7 +34,7 @@ import dagger.Provides;
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Fragment.java">android.app.Fragment</a>
  */
-@Module public abstract class HasFragmentModule {
+@Module public final class HasFragmentModule {
 
   /**
    * This will {@code Provides} an {@code FragmentScoped} and {@code FragmentQualified} {@code Class} for the given fragment.
