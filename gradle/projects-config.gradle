@@ -24,7 +24,7 @@ ext {
       key   : local.getProperty("developer.key")
   ]
 
-  repository = [url : "https://github.com/${developer.name}/${rootProject.name}"]
+  repository = [url : "https://github.com/$developer.name/$rootProject.name"]
   repository.licenses = ["Apache-2.0"]
 
   androids = [
@@ -35,32 +35,38 @@ ext {
 
   dependencys = [javax : "javax.inject:javax.inject:1"]
 
-  def supportVersion = "27.0.2"
+  def support = [
+      group   : "com.android.support",
+      version : "27.0.2"
+  ]
   dependencys.supports = [
-      appcompatV7 : "com.android.support:appcompat-v7:${supportVersion}",
-      supportV4   : "com.android.support:support-v4:${supportVersion}",
-      design      : "com.android.support:design:${supportVersion}"
+      appcompatV7 : "$support.group:appcompat-v7:$support.version",
+      supportV4   : "$support.group:support-v4:$support.version",
+      design      : "$support.group:design:$support.version"
   ]
 
-  def constraintVersion = "1.1.0-beta5"
+  def constraint = "1.1.0-beta5"
   dependencys.supports.constraints = [
-      "com.android.support.constraint:constraint-layout:${constraintVersion}",
-      "com.android.support.constraint:constraint-layout-solver:${constraintVersion}"
+      "${support.group}.constraint:constraint-layout:$constraint",
+      "${support.group}.constraint:constraint-layout-solver:$constraint"
   ]
 
   dependencys.supports.tests = [
-      runner   : "com.android.support.test:runner:1.0.1",
-      espresso : "com.android.support.test.espresso:espresso-core:3.0.1"
+      runner   : "${support.group}.test:runner:1.0.1",
+      espresso : "${support.group}.test.espresso:espresso-core:3.0.1"
   ]
 
-  daggerVersion = "2.14.1"
+  def dagger = [
+      group   : "com.google.dagger",
+      version : "2.14.1"
+  ]
   dependencys.daggers = [
-      android        : "com.google.dagger:dagger-android:${daggerVersion}",
-      androidSupport : "com.google.dagger:dagger-android-support:${daggerVersion}"
+      android        : "$dagger.group:dagger-android:$dagger.version",
+      androidSupport : "$dagger.group:dagger-android-support:$dagger.version"
   ]
   dependencys.daggers.annotations = [
-      compiler         : "com.google.dagger:dagger-compiler:${daggerVersion}",
-      androidProcessor : "com.google.dagger:dagger-android-processor:${daggerVersion}"
+      compiler         : "$dagger.group:dagger-compiler:$dagger.version",
+      androidProcessor : "$dagger.group:dagger-android-processor:$dagger.version"
   ]
 
   dependencys.tests = [junit : "junit:junit:4.12"]
@@ -77,9 +83,9 @@ allprojects {
   version = it.name.contains("app") ? "0.0.1" : "0.0.7"
 
   ext {
-    repository += [
-        description : "${rootProject.name}s' ${name} library",
-        packageUrl  : "${repository.url}/tree/master/${name}"
+    library = [
+        description : "${rootProject.name}s' $name library",
+        url         : "$repository.url/tree/master/$name"
     ]
 
     androids += [

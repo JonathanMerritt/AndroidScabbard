@@ -22,13 +22,13 @@ install.repositories.mavenInstaller {
     groupId this.group
     artifactId this.name
     name this.name
-    description repository.description
-    url repository.packageUrl
+    description library.description
+    url library.url
 
     licenses {
       license {
         name repository.licenses.join(", ")
-        url "${repository.url}/blob/master/LICENSE.txt"
+        url "$repository.url/blob/master/LICENSE.txt"
       }
     }
 
@@ -43,7 +43,7 @@ install.repositories.mavenInstaller {
     scm {
       connection "scm:git:${repository.url}.git"
       developerConnection "scm:git:${repository.url}.git"
-      url repository.packageUrl
+      url library.url
     }
   }
 }

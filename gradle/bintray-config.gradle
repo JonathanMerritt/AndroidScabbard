@@ -25,20 +25,20 @@ bintray {
   pkg {
     repo = rootProject.name
     name = this.name
-    desc = repository.description
-    websiteUrl = repository.packageUrl
-    issueTrackerUrl = "${repository.url}/issues"
+    desc = library.description
+    websiteUrl = library.url
+    issueTrackerUrl = "$repository.url/issues"
     vcsUrl = "scm:git:${repository.url}.git"
     licenses = repository.licenses
     publicDownloadNumbers = true
 
-    githubRepo = "${developer.name}/${rootProject.name}"
+    githubRepo = "$developer.name/$rootProject.name"
     githubReleaseNotesFile = "RELEASES.md"
 
     version {
       name = this.version
       released = new Date()
-      desc = "Check - ${repository.url}/releases"
+      desc = "Check - $repository.url/releases"
       vcsTag = this.version
 
       gpg {
