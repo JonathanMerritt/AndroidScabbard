@@ -24,7 +24,7 @@ ext {
       key   : local.getProperty("developer.key")
   ]
 
-  repository = [url : "https://github.com/$developer.name/$rootProject.name"]
+  repository = [url : "github.com/$developer.name/$rootProject.name"]
   repository.licenses = ["Apache-2.0"]
 
   androids = [
@@ -85,7 +85,7 @@ allprojects {
   ext {
     library = [
         description : "${rootProject.name}s' $name library",
-        url         : "$repository.url/tree/master/$name"
+        url         : "https://$repository.url/tree/master/$name"
     ]
 
     androids += [

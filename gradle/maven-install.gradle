@@ -28,7 +28,7 @@ install.repositories.mavenInstaller {
     licenses {
       license {
         name repository.licenses.join(", ")
-        url "$repository.url/blob/master/LICENSE.txt"
+        url "https://$repository.url/blob/master/LICENSE.txt"
       }
     }
 
