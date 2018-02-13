@@ -28,7 +28,7 @@ install.repositories.mavenInstaller {
     licenses {
       license {
         name repository.licenses.join(", ")
-        url "https://$repository.url/blob/master/LICENSE.txt"
+        url "$repository.url/blob/master/LICENSE.txt"
       }
     }
 
@@ -41,8 +41,8 @@ install.repositories.mavenInstaller {
     }
 
     scm {
-      connection "scm:git:${repository.url}.git"
-      developerConnection "scm:git:${repository.url}.git"
+      connection repository.git
+      developerConnection repository.git
       url library.url
     }
   }

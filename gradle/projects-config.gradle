@@ -24,7 +24,10 @@ ext {
       key   : local.getProperty("developer.key")
   ]
 
-  repository = [url : "github.com/$developer.name/$rootProject.name"]
+  repository = [root : "$developer.name/$rootProject.name"]
+  def github = "github.com/$repository.root"
+  repository += [url : "https://$github", git : "scm:git:${github}.git"]
+
   repository.licenses = ["Apache-2.0"]
 
   androids = [

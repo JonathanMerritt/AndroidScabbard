@@ -27,18 +27,18 @@ bintray {
     name = this.name
     desc = library.description
     websiteUrl = library.url
-    issueTrackerUrl = "https://$repository.url/issues"
-    vcsUrl = "scm:git:${repository.url}.git"
+    issueTrackerUrl = "$repository.url/issues"
+    vcsUrl = repository.git
     licenses = repository.licenses
     publicDownloadNumbers = true
 
-    githubRepo = "$developer.name/$rootProject.name"
+    githubRepo = repository.root
     githubReleaseNotesFile = "RELEASES.md"
 
     version {
       name = this.version
       released = new Date()
-      desc = "Check - https://$repository.url/releases"
+      desc = "Check - $repository.url/releases"
       vcsTag = this.version
 
       gpg {
