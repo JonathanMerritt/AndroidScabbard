@@ -23,12 +23,42 @@ import com.github.jonathanmerritt.androidscabbard.annotations.scope.ActivityScop
 import dagger.Module;
 import dagger.Provides;
 
-@Module public abstract class HasActivityModule {
+/**
+ * Base dagger module to include in android activity modules that implement IsActivityModule.
+ *
+ * <p>A {@code Module} that should be included by an {@link IsActivityModule}.</p>
+ *
+ * Example:
+ * <code> @Module(includes = HasActivityModule.class) interface SomeActivityModule extends IsActivityModule{@literal <SomeActivity>} {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Activity.java">android.app.Activity</a>
+ */
+@Module public final class HasActivityModule {
 
+  /**
+   * This will {@code Provides} an {@code ActivityScoped} and {@code ActivityQualified} {@code Class} for the given activity.
+   *
+   * @param activity that extends Activity
+   * @return a class
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Provides.java">dagger.Provides</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ActivityScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.scope.ActivityScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/qualifier/ActivityQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.qualifier.ActivityQualified</a>
+   */
   @ActivityScoped @ActivityQualified @Provides static Class<?> provideActivityClass(Activity activity) {
     return activity.getClass();
   }
 
+  /**
+   * This will {@code Provides} an {@code ActivityScoped} and {@code ActivityQualified} {@code FragmentManager} for the given activity.
+   *
+   * @param activity that extends Activity
+   * @return a FragmentManager
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Provides.java">dagger.Provides</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ActivityScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.scope.ActivityScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/qualifier/ActivityQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.qualifier.ActivityQualified</a>
+   * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/FragmentManager.java">android.app.FragmentManager</a>
+   */
   @ActivityScoped @ActivityQualified @Provides static FragmentManager provideFragmentManager(Activity activity) {
     return activity.getFragmentManager();
   }

@@ -37,11 +37,10 @@ import dagger.Module;
   /**
    * This will {@code Binds} an {@code ActivityScoped} {@code Activity} for the given activity.
    *
-   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
-   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ActivityScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.scope.ActivityScoped</a>
-   *
    * @param activity that extends Activity
    * @return a base Activity instance
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ActivityScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.scope.ActivityScoped</a>
    */
   @ActivityScoped @Binds Activity bindActivity(A activity);
 }

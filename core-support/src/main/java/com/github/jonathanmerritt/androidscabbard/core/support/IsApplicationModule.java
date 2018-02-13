@@ -22,12 +22,14 @@ import dagger.Module;
 import javax.inject.Singleton;
 
 /**
- * @see <a href="hhttps://github.com/JonathanMerritt/AndroidScabbard/blob/master/core/src/main/java/com/github/jonathanmerritt/androidscabbard/core/IsApplicationModule.java">IsApplicationModule</a>
+ * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/core/src/main/java/com/github/jonathanmerritt/androidscabbard/core/IsApplicationModule.java">com.github.jonathanmerritt.androidscabbard.core.IsApplicationModule</a>
  */
 @Module public interface IsApplicationModule<A extends Application> {
 
   /**
-   * @see <a href="hhttps://github.com/JonathanMerritt/AndroidScabbard/blob/master/core/src/main/java/com/github/jonathanmerritt/androidscabbard/core/IsApplicationModule.java">IsApplicationModule#bindApplication</a>
+   * @param application that extends Application
+   * @return a base Application instance
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/core/src/main/java/com/github/jonathanmerritt/androidscabbard/core/IsApplicationModule.java">com.github.jonathanmerritt.androidscabbard.core.IsApplicationModule#bindApplication</a>
    */
   @Singleton @Binds Application bindApplication(A application);
 }

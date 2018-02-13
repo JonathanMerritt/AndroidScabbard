@@ -23,13 +23,12 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * Base dagger module interface for android support fragments that are the child of an android support fragment
- * that is a child of an android support fragment.
+ * Base dagger module interface for android support grand child fragments.
  *
  * <p>A {@code Module} that should be extended or implemented by a grand child {@code Fragment} {@code Module}.</p>
  *
  * Example:
- * <code> @Module interface SomeGrandChildFragmentModule extends IsGrandChildFragmentModule<SomeGrandChildFragment> {} </code>
+ * <code> @Module interface SomeGrandChildFragmentModule extends IsGrandChildFragmentModule{@literal <SomeGrandChildFragment>} {} </code>
  *
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">android.support.v4.app.Fragment</a>
@@ -40,13 +39,11 @@ import dagger.Module;
    * This will {@code Binds} an {@code GrandChildFragmentScoped} and
    * {@code GrandChildFragmentQualified} {@code Fragment} for the given support fragment.
    *
+   * @param fragment that extends Fragment
+   * @return a base Fragment instance
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/GrandChildFragmentScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.support.scope.GrandChildFragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/GrandChildFragmentQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.qualifier.GrandChildFragmentQualified</a>
-   *
-   * @param fragment that extends Fragment
-   * @return a base Fragment instance
    */
-  @GrandChildFragmentScoped @GrandChildFragmentQualified @Binds Fragment bindGrandChildFragment(
-      F fragment);
+  @GrandChildFragmentScoped @GrandChildFragmentQualified @Binds Fragment bindGrandChildFragment(F fragment);
 }

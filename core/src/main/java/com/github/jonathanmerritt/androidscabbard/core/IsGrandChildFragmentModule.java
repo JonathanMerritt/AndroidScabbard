@@ -23,7 +23,7 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * Base dagger module interface for android fragments that are the child of an android fragment that is a child of an android fragment.
+ * Base dagger module interface for android grand child fragments.
  *
  * <p>A {@code Module} that should be extended or implemented by a grand child {@code Fragment} {@code Module}.</p>
  *
@@ -39,12 +39,11 @@ import dagger.Module;
    * This will {@code Binds} an {@code GrandChildFragmentScoped} and {@code GrandChildFragmentQualified}
    * {@code Fragment} for the given fragment.
    *
+   * @param fragment that extends Fragment
+   * @return a base Fragment instance
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/GrandChildFragmentScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.scope.GrandChildFragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/qualifier/GrandChildFragmentQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.qualifier.GrandChildFragmentQualified</a>
-   *
-   * @param fragment that extends Fragment
-   * @return a base Fragment instance
    */
   @GrandChildFragmentScoped @GrandChildFragmentQualified @Binds Fragment bindGrandChildFragment(F fragment);
 }

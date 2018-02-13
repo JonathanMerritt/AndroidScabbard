@@ -39,12 +39,11 @@ import dagger.Module;
    * This will {@code Binds} an {@code FragmentScoped} and {@code FragmentQualified}
    * {@code Fragment} for the given fragment.
    *
+   * @param fragment that extends Fragment
+   * @return a base Fragment instance
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/FragmentScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.scope.FragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/qualifier/FragmentQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.qualifier.FragmentQualified</a>
-   *
-   * @param fragment that extends Fragment
-   * @return a base Fragment instance
    */
   @FragmentScoped @FragmentQualified @Binds Fragment bindFragment(F fragment);
 }

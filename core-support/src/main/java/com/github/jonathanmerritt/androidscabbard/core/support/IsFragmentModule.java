@@ -28,7 +28,7 @@ import dagger.Module;
  * <p>A {@code Module} that should be extended or implemented by an {@code Fragment} {@code Module}.</p>
  *
  * Example:
- * <code> @Module interface SomeFragmentModule extends IsFragmentModule<SomeFragment> {} </code>
+ * <code> @Module interface SomeFragmentModule extends IsFragmentModule{@literal <SomeFragment>} {} </code>
  *
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">android.support.v4.app.Fragment</a>
@@ -39,12 +39,11 @@ import dagger.Module;
    * This will {@code Binds} an {@code FragmentScoped} and
    * {@code FragmentQualified} {@code Fragment} for the given support fragment.
    *
+   * @param fragment that extends Fragment
+   * @return a base Fragment instance
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/FragmentScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.support.scope.FragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/FragmentQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.qualifier.FragmentQualified</a>
-   *
-   * @param fragment that extends Fragment
-   * @return a base Fragment instance
    */
   @FragmentScoped @FragmentQualified @Binds Fragment bindFragment(F fragment);
 }

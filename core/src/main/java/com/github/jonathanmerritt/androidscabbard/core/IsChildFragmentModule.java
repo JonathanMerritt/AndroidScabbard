@@ -23,7 +23,7 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * Base dagger module interface for android fragments that are the child of an android fragment.
+ * Base dagger module interface for android child fragments.
  *
  * <p>A {@code Module} that should be extended or implemented by a child {@code Fragment} {@code Module}.</p>
  *
@@ -39,12 +39,11 @@ import dagger.Module;
    * This will {@code Binds} an {@code ChildFragmentScoped} and {@code ChildFragmentQualified}
    * {@code Fragment} for the given fragment.
    *
+   * @param fragment that extends Fragment
+   * @return a base Fragment instance
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/scope/ChildFragmentScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.scope.ChildFragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/qualifier/ChildFragmentQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.qualifier.ChildFragmentQualified</a>
-   *
-   * @param fragment that extends Fragment
-   * @return a base Fragment instance
    */
   @ChildFragmentScoped @ChildFragmentQualified @Binds Fragment bindChildFragment(F fragment);
 }

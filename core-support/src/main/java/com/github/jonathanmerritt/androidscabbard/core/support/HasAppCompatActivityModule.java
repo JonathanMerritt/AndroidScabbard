@@ -23,13 +23,43 @@ import com.github.jonathanmerritt.androidscabbard.annotations.support.scope.AppC
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * Base dagger module to include in android support appcompat activity modules that implement IsAppCompatActivityModule.
+ *
+ * <p>A {@code Module} that should be included by an {@link IsAppCompatActivityModule}.</p>
+ *
+ * Example:
+ * <code> @Module(includes = HasAppCompatActivityModule.class) interface SomeAppCompatActivityModule extends IsAppCompatActivityModule{@literal <SomeAppCompatActivity>} {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/master/v7/appcompat/src/main/java/android/support/v7/app/AppCompatActivity.java">android.support.v7.app.AppCompatActivity</a>
+ */
 @Module public abstract class HasAppCompatActivityModule {
 
-  @AppCompatActivityScoped @AppCompatActivityQualified @Provides
-  static Class<?> provideAppCompatActivityClass(AppCompatActivity appCompatActivity) {
+  /**
+   * This will {@code Provides} an {@code AppCompatActivityScoped} and {@code AppCompatActivityQualified} {@code Class} for the given appcompat activity.
+   *
+   * @param appCompatActivity that extends AppCompatActivity
+   * @return a class
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Provides.java">dagger.Provides</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/AppCompatActivityScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.support.scope.AppCompatActivityScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/AppCompatActivityQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier.AppCompatActivityQualified</a>
+   */
+  @AppCompatActivityScoped @AppCompatActivityQualified @Provides static Class<?> provideAppCompatActivityClass(
+      AppCompatActivity appCompatActivity) {
     return appCompatActivity.getClass();
   }
 
+  /**
+   * This will {@code Provides} an {@code AppCompatActivityScoped} and {@code AppCompatActivityQualified} {@code FragmentManager} for the given appcompat activity.
+   *
+   * @param appCompatActivity that extends AppCompatActivity
+   * @return a FragmentManager
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Provides.java">dagger.Provides</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/AppCompatActivityScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.support.scope.AppCompatActivityScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/AppCompatActivityQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier.AppCompatActivityQualified</a>
+   * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/FragmentManager.java">android.support.v4.app.FragmentManager</a>
+   */
   @AppCompatActivityScoped @AppCompatActivityQualified @Provides
   static FragmentManager provideSupportFragmentManager(AppCompatActivity appCompatActivity) {
     return appCompatActivity.getSupportFragmentManager();

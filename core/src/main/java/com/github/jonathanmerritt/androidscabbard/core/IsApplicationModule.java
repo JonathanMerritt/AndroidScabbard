@@ -37,11 +37,10 @@ import javax.inject.Singleton;
   /**
    * This will {@code Binds} an {@code Singleton} {@code Application} for the given application.
    *
-   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
-   * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Singleton.java">javax.inject.Singleton</a>
-   *
    * @param application that extends Application
    * @return a base Application instance
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">dagger.Binds</a>
+   * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Singleton.java">javax.inject.Singleton</a>
    */
   @Singleton @Binds Application bindApplication(A application);
 }

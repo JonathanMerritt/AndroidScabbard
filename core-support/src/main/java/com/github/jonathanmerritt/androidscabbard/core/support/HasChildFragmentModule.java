@@ -23,15 +23,45 @@ import com.github.jonathanmerritt.androidscabbard.annotations.support.scope.Chil
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * Base dagger module to include in android support child fragment modules that implement IsChildFragmentModule.
+ *
+ * <p>A {@code Module} that should be included by an {@link IsChildFragmentModule}.</p>
+ *
+ * Example:
+ * <code> @Module(includes = HasChildFragmentModule.class) interface SomeChildFragmentModule extends IsChildFragmentModule{@literal <SomeChildFragment>} {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">android.support.v4.app.Fragment</a>
+ */
 @Module public abstract class HasChildFragmentModule {
 
-  @ChildFragmentScoped @ChildFragmentQualified @Provides
-  static Class<?> provideChildFragmentClass(@ChildFragmentQualified Fragment fragment) {
+  /**
+   * This will {@code Provides} an {@code ChildFragmentScoped} and {@code ChildFragmentQualified} {@code Class} for the given fragment.
+   *
+   * @param fragment that extends support Fragment and is ChildFragmentQualified
+   * @return a class
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Provides.java">dagger.Provides</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/ChildFragmentScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.support.scope.ChildFragmentScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/ChildFragmentQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier.ChildFragmentQualified</a>
+   */
+  @ChildFragmentScoped @ChildFragmentQualified @Provides static Class<?> provideChildFragmentClass(
+      @ChildFragmentQualified Fragment fragment) {
     return fragment.getClass();
   }
 
-  @ChildFragmentScoped @ChildFragmentQualified @Provides
-  static FragmentManager provideGrandChildFragmentManager(@ChildFragmentQualified Fragment fragment) {
+  /**
+   * This will {@code Provides} an {@code ChildFragmentScoped} and {@code ChildFragmentQualified} {@code FragmentManager} for the given fragment.
+   *
+   * @param fragment that extends support Fragment and is ChildFragmentQualified
+   * @return a FragmentManager
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Provides.java">dagger.Provides</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/ChildFragmentScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.support.scope.ChildFragmentScoped</a>
+   * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/ChildFragmentQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier.ChildFragmentQualified</a>
+   * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/FragmentManager.java">android.support.v4.app.FragmentManager</a>
+   */
+  @ChildFragmentScoped @ChildFragmentQualified @Provides static FragmentManager provideGrandChildFragmentManager(
+      @ChildFragmentQualified Fragment fragment) {
     return fragment.getChildFragmentManager();
   }
 }

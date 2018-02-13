@@ -23,12 +23,41 @@ import dagger.Provides;
 import dagger.android.AndroidInjectionModule;
 import javax.inject.Singleton;
 
-@Module(includes = AndroidInjectionModule.class) public abstract class HasApplicationModule {
+/**
+ * Base dagger module to include in android application modules that implement IsApplicationModule.
+ *
+ * <p>A {@code Module} that includes {@code AndroidInjectionModule} and should be included by an {@link IsApplicationModule},</p>
+ *
+ * Example:
+ * <code> @Module(includes = HasApplicationModule.class) interface SomeApplicationModule extends IsApplicationModule{@literal <SomeApplication>} {} </code>
+ *
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
+ * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/android/AndroidInjectionModule.java">dagger.android.AndroidInjectionModule</a>
+ * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/Application.java">android.app.Application</a>
+ */
+@Module(includes = AndroidInjectionModule.class) public final class HasApplicationModule {
 
+  /**
+   * This will {@code Provides} an {@code Singleton} {@code Class} for the given application.
+   *
+   * @param application that extends Application
+   * @return a class
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Provides.java">dagger.Provides</a>
+   * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Singleton.java">javax.inject.Singleton</a>
+   */
   @Singleton @Provides static Class<?> provideApplicationClass(Application application) {
     return application.getClass();
   }
 
+  /**
+   * This will {@code Provides} an {@code Singleton} {@code Context} for the given application.
+   *
+   * @param application that extends Application
+   * @return the context
+   * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Provides.java">dagger.Provides</a>
+   * @see <a href="https://github.com/javax-inject/javax-inject/blob/master/src/javax/inject/Singleton.java">javax.inject.Singleton</a>
+   * @see <a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/content/Context.java">android.content.Context</a>
+   */
   @Singleton @Provides static Context provideContext(Application application) {
     return application.getBaseContext().getApplicationContext();
   }

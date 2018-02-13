@@ -23,12 +23,12 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * Base dagger module interface for android support fragments that are the child of an android support fragment.
+ * Base dagger module interface for android support child fragments.
  *
  * <p>A {@code Module} that should be extended or implemented by a child {@code Fragment} {@code Module}.</p>
  *
  * Example:
- * <code> @Module interface SomeChildFragmentModule extends IsChildFragmentModule<SomeChildFragment> {} </code>
+ * <code> @Module interface SomeChildFragmentModule extends IsChildFragmentModule{@literal <SomeChildFragment>} {} </code>
  *
  * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Module.java">dagger.Module</a>
  * @see <a href="https://android.googlesource.com/platform/frameworks/support/+/cef09fe/v4/java/android/support/v4/app/Fragment.java">android.support.v4.app.Fragment</a>
@@ -39,12 +39,11 @@ import dagger.Module;
    * This will {@code Binds} an {@code ChildFragmentScoped} and {@code ChildFragmentQualified}
    * {@code Fragment} for the given support fragment.
    *
+   * @param fragment that extends Fragment
+   * @return a base Fragment instance
    * @see <a href="https://github.com/google/dagger/blob/master/java/dagger/Binds.java">Binds</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/scope/ChildFragmentScoped.java">com.github.jonathanmerritt.androidscabbard.annotations.support.scope.ChildFragmentScoped</a>
    * @see <a href="https://github.com/JonathanMerritt/AndroidScabbard/blob/master/annotations-support/src/main/java/com/github/jonathanmerritt/androidscabbard/annotations/support/qualifier/ChildFragmentQualified.java">com.github.jonathanmerritt.androidscabbard.annotations.support.qualifier.ChildFragmentQualified</a>
-   *
-   * @param fragment that extends Fragment
-   * @return a base Fragment instance
    */
   @ChildFragmentScoped @ChildFragmentQualified @Binds Fragment bindChildFragment(F fragment);
 }
