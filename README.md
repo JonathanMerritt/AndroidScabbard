@@ -10,11 +10,42 @@ ___
 
 A set of base dagger classes(@Scopes, @Modules...) for common android components(Activities, Fragments...).
 
+#### Index
+
+**Annotations**
+- _`TYPE`Scoped_: Scopes based on its `TYPE`.
+- _`TYPE`Qualified_: Qualifies based on its `TYPE`.
+
+**Core**
+- _Is`TYPE`Module<? extends `TYPE`>_: Binds the base `TYPE` instance.
+- _Has`TYPE`Module_: Uses the base instance to provide a set of `TYPE` specific objects.
+
+`TYPE = Application || Activity || Fragment`
+
+
 ## Usage
-// TODO
+**Simple**
+```java
+  @Module public interface SomeActivityModule extends IsActivityModule<SomeActivity> {
+    @ActivityScoped @ActivityQualified @Provides static String provideActivityTag(Activity activity) {
+      return activity.getClass().getSimpleName();
+    }
+  }
+```
+
+**Full**
+```java
+  @Module(includes = HasActivityModule.class) public interface SomeActivityModule extends IsActivityModule<SomeActivity> {
+      @ActivityScoped @ActivityQualified @Provides static String provideActivityTag(@ActivityQualified Class<?> activityClass) {
+        return activityClass.getSimpleName();
+      }
+  }
+```
+
 
 ## Download
 Download jar from the GitHub [releases page][RELEASES].
+
 
 ### Gradle
 ```groovy
@@ -32,6 +63,7 @@ Download jar from the GitHub [releases page][RELEASES].
     implementation "com.github.jonathanmerritt.androidscabbard:core-support:${NEWEST_VERSION}"
   }
 ```
+
 
 ### Maven
 ```xml
@@ -65,6 +97,7 @@ Download jar from the GitHub [releases page][RELEASES].
  </dependency>
 </dependencies>
 ```
+
 
 ## License
 >[Apache-2.0][LICENSE]
