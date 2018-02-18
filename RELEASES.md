@@ -1,3 +1,12 @@
+### Patch: v0.0.8
+_February 16, 2018_
+
+- README changes.
+- Gradle changes again.
+- [Commits](https://github.com/JonathanMerritt/AndroidScabbard/compare/v0.0.7...v0.0.8)
+---
+
+
 ### Patch: v0.0.7
 _February 12, 2018_
 
