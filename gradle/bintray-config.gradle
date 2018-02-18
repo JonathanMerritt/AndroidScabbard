@@ -16,6 +16,8 @@
 
 apply plugin : 'com.jfrog.bintray'
 
+version = rep.version.name
+
 bintray {
   user = dev.name
   key = dev.bintray.key
@@ -36,10 +38,10 @@ bintray {
     githubReleaseNotesFile = "RELEASES.md"
 
     version {
-      name = this.version
+      name = rep.version.name
       released = new Date()
       desc = "Check - $rep.url/releases"
-      vcsTag = this.version
+      vcsTag = rep.version.name
 
       gpg {
         sign = true

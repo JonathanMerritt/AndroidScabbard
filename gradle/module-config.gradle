@@ -20,20 +20,23 @@ repositories {
   mavenCentral()
 }
 
+def isApp = plugins.hasPlugin('com.android.application')
 ext {
+  rep.version = [
+      name : isApp ? "0.0.1" : "0.0.8"
+  ]
+  rep.version += [
+      code : rep.version.name.replace(".", "").concat(new Date().format("MMddyy")).toBigInteger()
+  ]
+
   rep.lib = [
       name : name
   ]
-
   rep.lib += [
       url  : "$rep.url/tree/master/$rep.lib.name",
       desc : "${rep.name}s' $rep.lib.name library"
   ]
 }
-
-group = rep.id
-def isApp = plugins.hasPlugin('com.android.application')
-version = isApp ? "0.0.1" : "0.0.8"
 
 android {
   def compile = 27
@@ -44,11 +47,11 @@ android {
     minSdkVersion 17
     targetSdkVersion compile
 
-    versionCode version.replace(".", "").concat(new Date().format("MMddyy")).toBigInteger()
-    versionName version
+    versionCode rep.version.code
+    versionName rep.version.name
 
     if (isApp) {
-      applicationId group
+      applicationId rep.id
       testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
   }
