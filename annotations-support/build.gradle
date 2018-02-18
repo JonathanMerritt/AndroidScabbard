@@ -15,33 +15,10 @@
  */
 
 apply plugin : 'com.android.library'
-
-android {
-  compileSdkVersion androids.compileSdk
-  buildToolsVersion androids.buildTools
-
-  defaultConfig {
-    minSdkVersion androids.minSdk
-    targetSdkVersion androids.compileSdk
-    versionCode androids.versionCode
-    versionName version
-  }
-
-  buildTypes {
-    release {
-      postprocessing {
-        removeUnusedCode false
-        removeUnusedResources false
-        obfuscate false
-        optimizeCode false
-        proguardFile 'proguard-rules.pro'
-      }
-    }
-  }
-}
+apply from : rootProject.file("gradle/module-config.gradle")
 
 dependencies {
-  implementation dependencys.javax
+  implementation dep.javax
 }
 
 apply from : rootProject.file("gradle/android-tasks.gradle")

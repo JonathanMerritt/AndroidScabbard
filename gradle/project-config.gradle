@@ -1,0 +1,113 @@
+/*
+ *     Copyright 2018 Jonathan Merritt 11R00TT00R11@GMAIL.COM
+ *
+ *     Licensed under the Apache License, Version 2.0 (the "License");
+ *     you may not use this file except in compliance with the License.
+ *     You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
+ */
+
+ext {
+  dev = [
+      name  : "jonathanmerritt",
+      email : "11R00TT00RR11@GMAIL.COM"
+  ]
+
+  def local = new Properties()
+  local.load(file("local.properties").newDataInputStream())
+  dev.bintray = [
+      key : local.getProperty("bintray.key")
+  ]
+  dev.gpg = [
+      pass : local.getProperty("gpg.pass")
+  ]
+  dev.maven = [
+      pass : local.getProperty("maven.pass")
+  ]
+
+
+  rep = [
+      name : rootProject.name
+  ]
+  rep += [
+      id   : "com.github.${dev.name}.${rep.name.toLowerCase()}",
+      root : "$dev.name/$rep.name"
+  ]
+  rep += [
+      url : "https://github.com/$rep.root"
+  ]
+
+  rep.vcs = [
+      url : "scm:git:git://github.com/${rep.root}.git",
+      dev : "scm:git:git@github.com/${rep.root}.git"
+  ]
+
+  rep.labels = [
+      "android",
+      "android-library",
+      "dagger",
+      "dagger2",
+      "dagger-android",
+      "dagger2-android",
+      "dagger-android-support",
+      "dagger2-android-support"
+  ]
+
+  rep.licenses = [
+      "Apache-2.0"
+  ]
+
+
+  dep = [
+      javax : "javax.inject:javax.inject:1"
+  ]
+
+  def support = [
+      id  : "com.android.support",
+      tag : "27.0.2"
+  ]
+  dep.support = [
+      appcompatV7 : "$support.id:appcompat-v7:$support.tag",
+      supportV4   : "$support.id:support-v4:$support.tag",
+      design      : "$support.id:design:$support.tag"
+  ]
+
+  support.constraint = [
+      id  : "${support.id}.constraint",
+      tag : "1.1.0-beta5"
+  ]
+  dep.support.constraint = [
+      "$support.constraint.id:constraint-layout:$support.constraint.tag",
+      "$support.constraint.id:constraint-layout-solver:$support.constraint.tag"
+  ]
+
+  support.test = "${support.id}.test"
+  dep.support.test = [
+      runner   : "$support.test:runner:1.0.1",
+      espresso : "${support.test}.espresso:espresso-core:3.0.1"
+  ]
+
+  def dagger = [
+      id  : "com.google.dagger",
+      tag : "2.14.1"
+  ]
+  dep.dagger = [
+      android        : "$dagger.id:dagger-android:$dagger.tag",
+      androidSupport : "$dagger.id:dagger-android-support:$dagger.tag"
+  ]
+  dep.dagger.annotation = [
+      compiler         : "$dagger.id:dagger-compiler:$dagger.tag",
+      androidProcessor : "$dagger.id:dagger-android-processor:$dagger.tag"
+  ]
+
+  dep.test = [
+      junit : "junit:junit:4.12"
+  ]
+}

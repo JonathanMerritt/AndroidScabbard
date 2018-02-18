@@ -15,35 +15,13 @@
  */
 
 apply plugin : 'com.android.library'
+apply from : rootProject.file("gradle/module-config.gradle")
 
-android {
-  compileSdkVersion androids.compileSdk
-  buildToolsVersion androids.buildTools
-
-  defaultConfig {
-    minSdkVersion androids.minSdk
-    targetSdkVersion androids.compileSdk
-    versionCode androids.versionCode
-    versionName version
-  }
-
-  buildTypes {
-    release {
-      postprocessing {
-        removeUnusedCode false
-        removeUnusedResources false
-        obfuscate false
-        optimizeCode false
-        proguardFile 'proguard-rules.pro'
-      }
-    }
-  }
-}
 dependencies {
   api project(':annotations-support')
 
-  implementation dependencys.daggers.androidSupport
-  annotationProcessor dependencys.daggers.annotations.compiler
+  implementation dep.dagger.androidSupport
+  annotationProcessor dep.dagger.annotation.compiler
 }
 
 apply from : rootProject.file("gradle/android-tasks.gradle")

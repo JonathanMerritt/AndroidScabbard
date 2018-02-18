@@ -32,4 +32,4 @@ task clean(type : Delete) {
   delete rootProject.buildDir
 }
 
-apply from : rootProject.file("gradle/projects-config.gradle")
+apply from : rootProject.file("gradle/project-config.gradle")

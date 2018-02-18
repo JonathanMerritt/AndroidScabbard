@@ -15,48 +15,21 @@
  */
 
 apply plugin : 'com.android.application'
-
-android {
-  compileSdkVersion androids.compileSdk
-  buildToolsVersion androids.buildTools
-
-  defaultConfig {
-    minSdkVersion androids.minSdk
-    targetSdkVersion androids.compileSdk
-    versionCode androids.versionCode
-    versionName version
-
-    applicationId group
-
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-    }
-  }
-
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-}
+apply from : rootProject.file("gradle/module-config.gradle")
 
 dependencies {
   implementation fileTree(dir : 'libs', include : ['*.jar'])
   implementation project(':core')
 
-  implementation dependencys.daggers.android
-  annotationProcessor dependencys.daggers.annotations.compiler
-  annotationProcessor dependencys.daggers.annotations.androidProcessor
+  implementation dep.dagger.android
+  annotationProcessor dep.dagger.annotation.compiler
+  annotationProcessor dep.dagger.annotation.androidProcessor
 
-  implementation dependencys.supports.appcompatV7
-  implementation dependencys.supports.design
-  implementation dependencys.supports.constraints
+  implementation dep.support.appcompatV7
+  implementation dep.support.design
+  implementation dep.support.constraint
 
-  androidTestImplementation dependencys.supports.tests.runner
-  androidTestImplementation dependencys.supports.tests.espresso
-  testImplementation dependencys.tests.junit
+  androidTestImplementation dep.support.test.runner
+  androidTestImplementation dep.support.test.espresso
+  testImplementation dep.test.junit
 }
