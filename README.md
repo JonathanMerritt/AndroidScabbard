@@ -1,23 +1,20 @@
 <img src="/app/src/main/ic_launcher-web.png" width="156" align="left"/>
 
 # Android Scabbard
-
 [![JCenter][J-CENTER-SVG]][J-CENTER]
 [![Maven Central][MAVEN-SVG]][MAVEN]
 [![Travis][TRAVIS-CI-SVG]][TRAVIS-CI]
-
-___
-
-A set of base dagger classes(@Scopes, @Modules...) for common android components(Activities, Fragments...).
-
+>A set of base dagger classes(@Scopes, @Modules...) for common android components(Activities, Fragments...).
+#
 The main reason for creating the library, was to avoid having to copy over the same base dagger classes for
 every new project.
 
-I intended for it to be just the `annotations` modules, which contains `Scope`'s and `Qualifier`'s, however
-I decided to add the `core` modules, which contains `Module`'s. Each one has a `support` module equivalent, 
-to 'somewhat' match daggers' structure.
+I intended for it to be just the `annotations` library, which contains `@Scope`'s and `@Qualifier`'s, however
+I decided to add the `core` library, which contains `@Module`'s. 
 
-Any help or contribution is welcome.
+Each one has a `-support` library equivalent, to 'somewhat' match daggers' structure.
+
+_Any help or contribution is welcome._
 
 ## Download
 #### Gradle
@@ -50,6 +47,7 @@ Any help or contribution is welcome.
 ```
 
 *`core` libraries will include their equivalent `annotations` library automatically.
+
 **`-support` variants will NOT include their equivalents.
 
 
@@ -76,26 +74,15 @@ Check the sample apps for more detailed examples.
   }
 ```
 
-
-## Index
-#### Annotations
-- _`TYPE`Scoped_: Scopes based on its `TYPE`.
-- _`TYPE`Qualified_: Qualifies based on its `TYPE`.
-
-#### Core
-- _Is`TYPE`Module<? extends `TYPE`>_: Binds the base `TYPE` instance.
-- _Has`TYPE`Module_: Uses the base instance to provide a set of `TYPE` specific objects.
-
-`TYPE = Application || Activity || Fragment`
-
 ## TODO
 - Improve sample apps.
+- Add overview of classes to README.
 - Quadruple check stuff.
 - Bump to 1.0.0.
 - ...
 
 ## License
->[Apache-2.0][LICENSE]
+[Apache-2.0][LICENSE]
 
     Copyright 2018 Jonathan Merritt 11R00TT00R11@GMAIL.COM
     
