@@ -4,7 +4,8 @@
 [![JCenter][J-CENTER-SVG]][J-CENTER]
 [![Maven Central][MAVEN-SVG]][MAVEN]
 [![Travis][TRAVIS-CI-SVG]][TRAVIS-CI]
->A set of base dagger classes(@Scopes, @Modules...) for common android components(Activities, Fragments...).
+
+**A set of base dagger classes(@Scopes, @Modules...) for common android components(Activities, Fragments...).**
 #
 The main reason for creating the library, was to avoid having to copy over the same base dagger classes for
 every new project.
