@@ -10,21 +10,55 @@ ___
 
 A set of base dagger classes(@Scopes, @Modules...) for common android components(Activities, Fragments...).
 
-#### Index
+The main reason for creating the library, was to avoid having to copy over the same base dagger classes for
+every new project.
 
-**Annotations**
-- _`TYPE`Scoped_: Scopes based on its `TYPE`.
-- _`TYPE`Qualified_: Qualifies based on its `TYPE`.
+I intended for it to be just the `annotations` modules, which contains `Scope`'s and `Qualifier`'s, however
+I decided to add the `core` modules, which contains `Module`'s. Each one has a `support` module equivalent, 
+to 'somewhat' match daggers' structure.
 
-**Core**
-- _Is`TYPE`Module<? extends `TYPE`>_: Binds the base `TYPE` instance.
-- _Has`TYPE`Module_: Uses the base instance to provide a set of `TYPE` specific objects.
+Any help or contribution is welcome.
 
-`TYPE = Application || Activity || Fragment`
+## Download
+#### Gradle
+```groovy
+  repositories {
+    jcenter()
+    //OR
+    mavenCentral()
+  }
+ 
+  dependencies {
+    implementation "com.github.jonathanmerritt.androidscabbard:annotations OR* core:x.y.z"    
+    //AND OR**
+    implementation "com.github.jonathanmerritt.androidscabbard:annotations-support OR* core-support:x.y.z"
+  }
+```
+
+#### Maven
+```xml
+<dependencies>
+ <dependency>
+   <groupId>com.github.jonathanmerritt.androidscabbard</groupId>
+   <artifactId>annotations OR* core</artifactId>
+   <!--AND OR**-->
+   <artifactId>annotations-support OR* core-support</artifactId>
+   <version>x.y.z</version>
+   <type>pom</type>
+ </dependency>
+</dependencies>
+```
+
+*`core` libraries will include their equivalent `annotations` library automatically.
+**`-support` variants will NOT include their equivalents.
 
 
 ## Usage
-**Simple**
+This small example simply `Provides` an `ActivityScoped ActivityQualified String`.
+
+Check the sample apps for more detailed examples.
+ 
+#### Annotations
 ```java
   @Module public interface SomeActivityModule extends IsActivityModule<SomeActivity> {
     @ActivityScoped @ActivityQualified @Provides static String provideActivityTag(Activity activity) {
@@ -33,7 +67,7 @@ A set of base dagger classes(@Scopes, @Modules...) for common android components
   }
 ```
 
-**Full**
+#### Core
 ```java
   @Module(includes = HasActivityModule.class) public interface SomeActivityModule extends IsActivityModule<SomeActivity> {
       @ActivityScoped @ActivityQualified @Provides static String provideActivityTag(@ActivityQualified Class<?> activityClass) {
@@ -43,61 +77,22 @@ A set of base dagger classes(@Scopes, @Modules...) for common android components
 ```
 
 
-## Download
-Download jar from the GitHub [releases page][RELEASES].
+## Index
+#### Annotations
+- _`TYPE`Scoped_: Scopes based on its `TYPE`.
+- _`TYPE`Qualified_: Qualifies based on its `TYPE`.
 
+#### Core
+- _Is`TYPE`Module<? extends `TYPE`>_: Binds the base `TYPE` instance.
+- _Has`TYPE`Module_: Uses the base instance to provide a set of `TYPE` specific objects.
 
-### Gradle
-```groovy
-  repositories {
-    jcenter()
-    // or
-    mavenCentral()
-  }
- 
-  dependencies {
-    implementation "com.github.jonathanmerritt.androidscabbard:annotations:${NEWEST_VERSION}"
-    implementation "com.github.jonathanmerritt.androidscabbard:annotations-support:${NEWEST_VERSION}"
-       
-    implementation "com.github.jonathanmerritt.androidscabbard:core:${NEWEST_VERSION}"
-    implementation "com.github.jonathanmerritt.androidscabbard:core-support:${NEWEST_VERSION}"
-  }
-```
+`TYPE = Application || Activity || Fragment`
 
-
-### Maven
-```xml
-<dependencies>
- <dependency>
-   <groupId>com.github.jonathanmerritt.androidscabbard</groupId>
-   <artifactId>annotations</artifactId>
-   <version>NEWEST_VERSION</version>
-   <type>pom</type>
- </dependency>
- 
- <dependency>
-   <groupId>com.github.jonathanmerritt.androidscabbard</groupId>
-   <artifactId>annotations-support</artifactId>
-   <version>NEWEST_VERSION</version>
-   <type>pom</type>
- </dependency>
-  
- <dependency>
-   <groupId>com.github.jonathanmerritt.androidscabbard</groupId>
-   <artifactId>core</artifactId>
-   <version>NEWEST_VERSION</version>
-   <type>pom</type>
- </dependency>
-   
- <dependency>
-   <groupId>com.github.jonathanmerritt.androidscabbard</groupId>
-   <artifactId>core-support</artifactId>
-   <version>NEWEST_VERSION</version>
-   <type>pom</type>
- </dependency>
-</dependencies>
-```
-
+## TODO
+- Improve sample apps.
+- Quadruple check stuff.
+- Bump to 1.0.0.
+- ...
 
 ## License
 >[Apache-2.0][LICENSE]
