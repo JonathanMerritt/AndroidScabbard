@@ -15,7 +15,32 @@
  */
 
 apply plugin : 'com.android.library'
-apply from : rootProject.file("gradle/module-config.gradle")
+
+android {
+  compileSdkVersion rep.sdk.compile
+  buildToolsVersion rep.sdk.tools
+
+  defaultConfig {
+    minSdkVersion rep.sdk.min
+    targetSdkVersion rep.sdk.compile
+    versionCode rep.version.code
+    versionName rep.version.name
+
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      postprocessing {
+        removeUnusedCode false
+        removeUnusedResources false
+        obfuscate false
+        optimizeCode false
+        proguardFile 'proguard-rules.pro'
+      }
+    }
+  }
+}
 
 dependencies {
   implementation dep.javax

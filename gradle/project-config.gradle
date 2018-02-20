@@ -64,6 +64,12 @@ ext {
       "Apache-2.0"
   ]
 
+  rep.sdk = [
+      compile : 27,
+      min     : 17,
+      tools   : '27.0.3'
+  ]
+
 
   dep = [
       javax : "javax.inject:javax.inject:1"
@@ -110,4 +116,31 @@ ext {
   dep.test = [
       junit : "junit:junit:4.12"
   ]
+}
+
+subprojects {
+  repositories {
+    google()
+    jcenter()
+    mavenCentral()
+  }
+
+  beforeEvaluate {Project project ->
+    project.ext {
+      rep.lib = [
+          name : project.name
+      ]
+      rep.lib += [
+          url  : "$rep.url/tree/master/$rep.lib.name",
+          desc : "${rep.name}s' $rep.lib.name library"
+      ]
+
+      rep.version = [
+          name : rep.lib.name.contains('app') ? "0.0.1" : "0.0.8"
+      ]
+      rep.version += [
+          code : rep.version.name.replace(".", "").concat(new Date().format("MMddyy")).toBigInteger()
+      ]
+    }
+  }
 }
