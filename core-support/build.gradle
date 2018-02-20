@@ -47,6 +47,9 @@ dependencies {
 
   implementation dep.dagger.androidSupport
   annotationProcessor dep.dagger.annotation.compiler
+
+  androidTestImplementation dep.support.test
+  testImplementation dep.test.junit
 }
 
 apply from : rootProject.file("gradle/android-tasks.gradle")

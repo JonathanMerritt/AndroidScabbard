@@ -44,6 +44,9 @@ android {
 
 dependencies {
   implementation dep.javax
+
+  androidTestImplementation dep.support.test
+  testImplementation dep.test.junit
 }
 
 apply from : rootProject.file("gradle/android-tasks.gradle")

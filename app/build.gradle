@@ -50,14 +50,12 @@ dependencies {
   implementation project(':core')
 
   implementation dep.dagger.android
-  annotationProcessor dep.dagger.annotation.compiler
-  annotationProcessor dep.dagger.annotation.androidProcessor
+  annotationProcessor dep.dagger.annotation.values()
 
-  implementation dep.support.appcompatV7
+  implementation dep.support.appcompat
   implementation dep.support.design
   implementation dep.support.constraint
 
-  androidTestImplementation dep.support.test.runner
-  androidTestImplementation dep.support.test.espresso
+  androidTestImplementation dep.support.test
   testImplementation dep.test.junit
 }

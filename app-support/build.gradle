@@ -44,21 +44,18 @@ android {
   }
 }
 
-
 dependencies {
   implementation fileTree(dir : 'libs', include : ['*.jar'])
   implementation project(':core-support')
 
   implementation dep.dagger.androidSupport
-  annotationProcessor dep.dagger.annotation.compiler
-  annotationProcessor dep.dagger.annotation.androidProcessor
+  annotationProcessor dep.dagger.annotation.values()
 
-  implementation dep.support.appcompatV7
-  implementation dep.support.supportV4
+  implementation dep.support.appcompat
+  implementation dep.support.v4
   implementation dep.support.design
   implementation dep.support.constraint
 
-  androidTestImplementation dep.support.test.runner
-  androidTestImplementation dep.support.test.espresso
+  androidTestImplementation dep.support.test
   testImplementation dep.test.junit
 }

@@ -76,41 +76,41 @@ ext {
   ]
 
   def support = [
-      id  : "com.android.support",
-      tag : "27.0.2"
+      group   : "com.android.support",
+      version : "27.0.2"
   ]
   dep.support = [
-      appcompatV7 : "$support.id:appcompat-v7:$support.tag",
-      supportV4   : "$support.id:support-v4:$support.tag",
-      design      : "$support.id:design:$support.tag"
+      appcompat : "$support.group:appcompat-v7:$support.version",
+      v4        : "$support.group:support-v4:$support.version",
+      design    : "$support.group:design:$support.version"
   ]
 
   support.constraint = [
-      id  : "${support.id}.constraint",
-      tag : "1.1.0-beta5"
+      group   : "${support.group}.constraint",
+      version : "1.1.0-beta5"
   ]
   dep.support.constraint = [
-      "$support.constraint.id:constraint-layout:$support.constraint.tag",
-      "$support.constraint.id:constraint-layout-solver:$support.constraint.tag"
+      "$support.constraint.group:constraint-layout:$support.constraint.version",
+      "$support.constraint.group:constraint-layout-solver:$support.constraint.version"
   ]
 
-  support.test = "${support.id}.test"
+  support.test = "${support.group}.test"
   dep.support.test = [
-      runner   : "$support.test:runner:1.0.1",
-      espresso : "${support.test}.espresso:espresso-core:3.0.1"
+      "$support.test:runner:1.0.1",
+      "${support.test}.espresso:espresso-core:3.0.1"
   ]
 
   def dagger = [
-      id  : "com.google.dagger",
-      tag : "2.14.1"
+      group   : "com.google.dagger",
+      version : "2.14.1"
   ]
   dep.dagger = [
-      android        : "$dagger.id:dagger-android:$dagger.tag",
-      androidSupport : "$dagger.id:dagger-android-support:$dagger.tag"
+      android        : "$dagger.group:dagger-android:$dagger.version",
+      androidSupport : "$dagger.group:dagger-android-support:$dagger.version"
   ]
   dep.dagger.annotation = [
-      compiler         : "$dagger.id:dagger-compiler:$dagger.tag",
-      androidProcessor : "$dagger.id:dagger-android-processor:$dagger.tag"
+      compiler         : "$dagger.group:dagger-compiler:$dagger.version",
+      androidProcessor : "$dagger.group:dagger-android-processor:$dagger.version"
   ]
 
   dep.test = [
@@ -125,10 +125,10 @@ subprojects {
     mavenCentral()
   }
 
-  beforeEvaluate {Project project ->
-    project.ext {
+  beforeEvaluate {
+    ext {
       rep.lib = [
-          name : project.name
+          name : name
       ]
       rep.lib += [
           url  : "$rep.url/tree/master/$rep.lib.name",
