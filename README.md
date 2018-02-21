@@ -6,7 +6,7 @@
 [![Travis][TRAVIS-CI-SVG]][TRAVIS-CI]
 
 
-**A set of base dagger classes(@Scopes, @Modules...) for common android components(Activities, Fragments...).**
+**A set of base dagger classes for common android components.**
 
 #
 The main reason for creating the library, was to avoid having to copy over the same base dagger classes for
