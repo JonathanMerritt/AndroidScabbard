@@ -61,8 +61,8 @@ Check the sample apps for more detailed examples.
  
 #### Annotations
 ```java
-  @Module public interface SomeActivityModule extends IsActivityModule<SomeActivity> {
-    @ActivityScoped @ActivityQualified @Provides static String provideActivityTag(Activity activity) {
+  @Module public interface SomeActivityModule {
+    @ActivityScoped @ActivityQualified @Provides static String provideActivityTag(SomeActivity someActivity) {
       return activity.getClass().getSimpleName();
     }
   }
