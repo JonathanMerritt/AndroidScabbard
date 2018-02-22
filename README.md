@@ -57,7 +57,7 @@ _Any help or contribution is welcome._
 ## Usage
 This small example simply `Provides` an `ActivityScoped ActivityQualified String`.
 
-Check the sample apps for more detailed examples.
+_Check the sample apps for more detailed examples._
  
 #### Annotations
 ```java
