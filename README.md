@@ -1,4 +1,4 @@
-<img src="/app/src/main/ic_launcher-web.png" width="156" align="left"/>
+<img src="https://raw.githubusercontent.com/JonathanMerritt/AndroidScabbard/master/app/src/main/ic_launcher-web.png" width="156" align="left"/>
 
 # Android Scabbard
 [![JCenter][J-CENTER-SVG]][J-CENTER]
