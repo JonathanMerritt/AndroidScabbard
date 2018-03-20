@@ -102,7 +102,7 @@ ext {
 
   def dagger = [
       group   : "com.google.dagger",
-      version : "2.14.1"
+      version : "2.15"
   ]
   dep.dagger = [
       android        : "$dagger.group:dagger-android:$dagger.version",
