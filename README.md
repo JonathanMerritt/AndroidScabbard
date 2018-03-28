@@ -1,9 +1,9 @@
 <img src="https://raw.githubusercontent.com/JonathanMerritt/AndroidScabbard/master/app/src/main/ic_launcher-web.png" width="156" align="left"/>
 
 # Android Scabbard
-[![JCenter][J-CENTER-SVG]][J-CENTER]
-[![Maven Central][MAVEN-SVG]][MAVEN]
-[![Travis][TRAVIS-CI-SVG]][TRAVIS-CI]
+[![BINTRAY][BINTRAY-SVG]][BINTRAY]
+[![MAVEN-CENTRAL][MAVEN-CENTRAL-SVG]][MAVEN-CENTRAL]
+[![TRAVIS-CI][TRAVIS-CI-SVG]][TRAVIS-CI]
 
 
 **A set of base dagger classes for common android components.**
@@ -101,11 +101,12 @@ _Check the sample apps for more detailed examples._
     See the License for the specific language governing permissions and
     limitations under the License.
 
-[J-CENTER-SVG]:https://api.bintray.com/packages/jonathanmerritt/AndroidScabbard/annotations/images/download.svg
-[J-CENTER]:https://api.bintray.com/packages/jonathanmerritt/AndroidScabbard/annotations/
-[MAVEN-SVG]: https://maven-badges.herokuapp.com/maven-central/com.github.jonathanmerritt.androidscabbard/annotations/badge.svg
-[MAVEN]: https://maven-badges.herokuapp.com/maven-central/com.github.jonathanmerritt.androidscabbard/annotations/
-[TRAVIS-CI-SVG]: https://travis-ci.org/JonathanMerritt/AndroidScabbard.svg?branch=master
+[BINTRAY-SVG]:https://img.shields.io/bintray/v/jonathanmerritt/AndroidScabbard/annotations.svg?style=flat-square&colorB=067EC4&label=Bintray
+[BINTRAY]:https://bintray.com/jonathanmerritt/AndroidScabbard/annotations/_latestVersion
+[MAVEN-CENTRAL-SVG]: https://img.shields.io/maven-central/v/com.github.jonathanmerritt.androidscabbard/annotations.svg?style=flat-square&colorB=067EC4&label=MavenCentral
+[MAVEN-CENTRAL]: http://repo1.maven.org/maven2/com/github/jonathanmerritt/androidscabbard/annotations
+[TRAVIS-CI-SVG]: https://img.shields.io/travis/JonathanMerritt/AndroidScabbard.svg?style=flat-square&colorB=067EC4&label=TravisCI
 [TRAVIS-CI]: https://travis-ci.org/JonathanMerritt/AndroidScabbard
+
 [RELEASES]: https://github.com/JonathanMerritt/AndroidScabbard/releases
 [LICENSE]: https://github.com/JonathanMerritt/AndroidScabbard/blob/master/LICENSE.txt
